@@ -1,0 +1,9 @@
+i = (* INSERT IMAGE HERE *)
+faces = FindFaces[i];
+face1 = faces[[1]];
+pos1 = Mean[{face1[[1]], face1[[2]]}];
+face2 = faces[[2]];
+pos2 = Mean[{face2[[1]], face2[[2]]}];
+isolatedFaces = ImageTrim[i, #]&/@faces;
+i2 = ImageCompose[i, RemoveBackground[isolatedFaces[[1]]],pos2];
+i3 = ImageCompose[i2, RemoveBackground[isolatedFaces[[2]]],pos1]
